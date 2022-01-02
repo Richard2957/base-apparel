@@ -1,0 +1,51 @@
+*{
+margin:0;
+padding:0;
+box-sizing: border-box;
+
+}
+
+
+:root{
+   --pinkyred: hsl(0, 36%, 70%);
+  --brightred: hsl(0, 93%, 68%);
+  --dark: hsl(0, 6%, 24%);
+  font-family: 'Josefin Sans', sans-serif; 
+
+    
+    --grad1: Linear, 135deg, from hsl(0, 0%, 100%), to hsl(0, 100%, 98%);
+    --grad2: Linear, 135deg, from hsl(0, 80%, 86%), to hsl(0, 74%, 74%)
+   }
+
+body > *{
+opacity:.7;
+}
+   body::after{
+position:absolute;content:"";
+top:0;
+border:7px black dashed;
+width:100%;
+height:100%;
+bottom:0;
+background:url("./design/mobile-design.jpg");
+background-repeat: no-repeat;
+animation:myflicker infinite alternate 2s;
+  }
+
+  @keyframes myflicker{
+from{opacity:.5;}
+to {opacity:.7;}
+
+  }
+
+main{
+    background-color: white;
+    border:3px red solid;
+
+    }
+
+    .logo{
+        background: url("./images/logo.svg");
+        content:"";
+        width:100%;
+    height:50px;    }
