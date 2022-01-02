@@ -152,6 +152,9 @@ box-shadow: 0px 15px 20px rgba(198, 110, 110, 0.247569);
 border-radius: 28px;
 width:64px;
 }
+input[type="submit"]:hover{
+background: url("./images/icon-arrow.svg") no-repeat 20px 12px, linear-gradient(135deg,  var(--brightred), var(--pinkyred)) ;
+}
 
 .error{
 display:none;
