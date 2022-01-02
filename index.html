@@ -34,29 +34,41 @@
     <div class="container">
 
       <div class="leftsection">
-        <div class="header"><div class="logo"></div></div>
-        <div class="mobilewrapper">
-        <div class="mobileimage"></div>
+        <div class="header">
+          <div class="logo"></div>
         </div>
+        <img class="mobile-image" src="./images/hero-mobile.jpg" alt="Lady in orange shirt">
+        
+        
         <div class="maintext">
-          <span>We're</span> coming soon
-
-          <p>Hello fellow shoppers! We're currently building our new fashion store.
+          <div class="headline">
+          <span>We're</span><br> coming<br>soon
+        </div>
+          <p class="info">Hello fellow shoppers! We're currently building our new fashion store.
             Add your email below to stay up-to-date with announcements and our launch deals.</p>
-
-          <form>
-            <input type="email" name="email" id="email">
-            <input type="submit" value="submit">
+<!-- novalidate as a form attribute means that we can use our javascript to validate -->
+          <form novalidate class="form">
+            <input type="email"  placeholder="Email Address " required name="email" id="email">
+                   <input type="submit" value=""> 
+                   <div class="error" aria-live="polite">Please provide a valid email</div> 
+         
           </form>
+          
 
-          Email Address
+  
+
+
+   
+
+
+
 
 
         </div>
 
       </div>
       <div class="rightsection">
-        picturezzzzzzzzzzzzzzzzzzzzzZZZZZZZZZZ
+
         <div class="desktopimage"></div>
       </div>
 
@@ -72,5 +84,21 @@
     </p>
   </footer>
 </body>
+<script>
 
+  const form=document.querySelector(".form");
+  const email=document.querySelector("#email");
+  form.addEventListener('submit', function (event) {
+        // if the form contains valid data, we let it submit
+     
+        //document.querySelector(".error").style.display="none";
+
+        if(!email.validity.valid) {
+          document.querySelector(".error").style.display="block";
+          // Then we prevent the form from being sent by canceling the event
+          event.preventDefault();
+      
+        }
+      });
+   </script>   
 </html>

@@ -7,64 +7,47 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-
 }
-
 
 :root {
     --pinkyred: hsl(0, 36%, 70%);
     --brightred: hsl(0, 93%, 68%);
     --dark: hsl(0, 6%, 24%);
+
     font-family: 'Josefin Sans', sans-serif;
     font-size: 16px;
-
-
-    --grad1: Linear, 135deg, from hsl(0, 0%, 100%), to hsl(0, 100%, 98%);
-    --grad2: Linear, 135deg, from hsl(0, 80%, 86%), to hsl(0, 74%, 74%)
+    
 }
-
 
 /* Development and debugging only */
 
-
-body {
-    border: 1px green solid;
-}
-
-body>* {
+/* body>* {
     opacity: .8;
 }
 
-xbody::after {
+body::after {
     position: absolute;
     content: "";
     top: 0;
-
     width: 100%;
     height: 100%;
     bottom: 0;
-    background: url("./design/mobile-design.jpg");
-    background-repeat: no-repeat;
+    background: url("./design/desktop-design.jpg");
+       background-repeat: no-repeat;
     animation: myflicker infinite alternate 2s;
 }
-
 @keyframes myflicker {
     from {
         opacity: .5;
     }
-
     to {
         opacity: .7;
     }
-}
+} */
 
 main {
-    background-color: white;
-
-
+    background-color: #FAFAFA;
 }
-
-
 
 
 /* Basic structure of page is:
@@ -81,69 +64,129 @@ media query on mobile makes rightsection invisible; on desktop then the mobileim
     flex-wrap: nowrap;
     align-items: flex-start;
 }
-
 .leftsection {
-    flex: 0 0 50%;
-    background: moccasin;
-
+    flex: 0 0 58%;
 }
-
 .rightsection {
-    flex: 0 0 50%;
-
+    flex: 0 0 42%;
 }
-
 
 /* Logo section */
 .header {
     width: 100%;
-    height: calc(84rem/16);
+    height: calc(235rem/16);
     content: "";
+    overflow:hidden;
 }
 
 .logo {
-    margin: 31px 0 0 32px;
+    margin: calc(64em/16) 0 0 calc(169em/16);
     background: url("./images/logo.svg");
     background-repeat: no-repeat;
     height: 100px;
     content: "";
-    background-size: 100px 21px;
+    background-size: calc(153em/16) calc(33em/16);
 }
 
-.mobilewrapper {
-    display:none;
-    width: 100vw;
-    height: 80px;
-    border: 2px red solid;
-
-
-}
-
-.mobileimage {
+/* Mobile image -- hidden on desktop, made visible in media query   */
+.mobile-image {
  display:none;
-    background: url("./images/hero-mobile.jpg") no-repeat;
-    background-size: cover;
-    width: 100%;
-    height: 100%;
-    content: "";
-    padding-bottom: 90%;
+ width:100vw;
 }
 
 
 
+/* Text area  */
+.maintext{
+padding:0 10.5%;
+}
 
+.headline{
+    text-align:left;
+    text-transform: uppercase;
+    font-weight: 300;
+font-size: 64px;
+line-height: 64px;
+margin:2px 0 0 78px;
+letter-spacing: 17.3206px;
+    color: var(--dark)
+
+}
+
+.info{
+    margin-top:2rem;
+margin-left:calc(80em/16);
+text-align:left;
+color: var(--pinkyred);
+font-size: 16px;
+line-height: 28px;
+width:80%;
+}
+
+/* Form and input elements */
+
+.form{
+position:relative;
+margin:29px 0 ;
+}
+
+input[type="email"]{
+height:48px;
+border: 2px solid var(--brightred);
+box-sizing: border-box;
+border-radius: 28px;
+padding-left:24px;
+font-size: 14px;
+color:var(--dark);
+width:100%;
+
+}
+
+input[type="submit"]{
+position:absolute;
+right:0px;
+top:0;
+height:48px;
+background: url("./images/icon-arrow.svg") no-repeat 20px 12px, linear-gradient(135deg, #F8BFBF 0%, #EE8B8B 100%) ;
+box-shadow: 0px 15px 20px rgba(198, 110, 110, 0.247569);
+border-radius: 28px;
+width:64px;
+}
+
+.error{
+display:none;
+font-weight: normal;
+font-size: 13px;
+line-height: 13px;
+color: var(--brightred);
+margin-left:24px;
+margin-top:1em;
+
+}
 
 
 .desktopimage {
     background: url("./images/hero-desktop.jpg");
-
+   background-repeat: no-repeat;
     height: 100vh;
     width: 100%;
     content: "";
 }
 
-@media (max-width:600px) {
+/********
+
+            MOBILE QUERY
+
+
+                                            ********/
+@media (max-width:890px) {
  
+
+    body::after{
+
+        background: url("./design/mobile-design.jpg");
+        background-repeat: no-repeat;
+    }
     .desktopimage {
         display: none;
     }
@@ -157,8 +200,51 @@ media query on mobile makes rightsection invisible; on desktop then the mobileim
     }
 
 
+.header{
+    height: calc(84rem/16);
+}
 
-    .mobilewrapper, .mobileimage{
+.logo{
+    margin: calc(31em/16) 0 0 calc(32em/16);
+    background-size: 100px 21px;
+
+}
+
+
+
+
+
+    .mobile-image{
         display:block;
     }
+
+
+
+    .headline{
+   
+margin:66px 0 0 0;
+ font-weight: 600;
+font-size: 40px;
+line-height: 42px;
+text-align: center;
+letter-spacing: 10.8254px;
+
+
+}
+
+
+.headline span{
+font-weight: 300;;
+  color:  var(--pinkyred)
+}
+
+.info{
+    font-size: 14px;
+    line-height: 22px;
+    width:100%;
+    text-align:center;
+    margin-left:0;
+    margin-top:1rem;
+}
+
 }
